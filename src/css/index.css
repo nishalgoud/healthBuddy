@@ -1,0 +1,14 @@
+.navigationBar{
+    padding-left: 1em;
+    padding-right: 1em;
+}
+
+.cardBody {
+    margin: 4em 30em;
+}
+
+.footer{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
