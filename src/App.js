@@ -11,20 +11,20 @@ import {
   HOME_PATH,
   CAREER_PATH,
   USERS_PATH,
-  FORGOT_PASSWORD_PATH,
+  RESET_PASSWORD_PATH,
   PROFILE_PATH,
   MY_HEALTH_PATH,
   CONTACT_PATH,
 } from "./constants";
 import { Careers } from "./components/Careers";
 import { UsersList } from "./components/UsersList";
-import { ForgotPasswordPage } from "./components/ForgotPasswordPage";
 import { ProfilePage } from "./components/ProfilePage";
 import { Footer } from "./components/Footer";
 import { MyHealth } from "./components/MyHealth";
 import { Contact } from "./components/Contact";
 import { ProtectedRoute } from "./routes/ProtectedRoute";
 import AutoLogout from "./components/AutoLogout";
+import { ResetPasswordPage } from "./components/ResetPasswordPage";
 
 function App() {
   const getComponentWithAutoLogout = (component) => {
@@ -58,7 +58,7 @@ function App() {
 
           <Route path={LOGIN_PATH} element={<LoginPage />} />
           <Route path={SIGNUP_PATH} element={<SignUpPage />} />
-          <Route path={FORGOT_PASSWORD_PATH} element={<ForgotPasswordPage />} />
+          <Route path={RESET_PASSWORD_PATH} element={<ResetPasswordPage />} />
           <Route path={CONTACT_PATH} element={<Contact />} />
         </Route>
 

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Button, Form, Card, Row, Col } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
 
-import { FORGOT_PASSWORD_PATH, HOME_PATH } from "../constants";
+import { RESET_PASSWORD_PATH, HOME_PATH } from "../constants";
 import LoginService from "../services/LoginService";
 
 export function LoginPage() {
@@ -59,7 +59,7 @@ export function LoginPage() {
               />
             </Form.Group>
             <Form.Group as={Col}>
-              <Link to={FORGOT_PASSWORD_PATH}>forgot password</Link>
+              <Link to={RESET_PASSWORD_PATH}>reset password</Link>
             </Form.Group>
           </Row>
           <Button variant="secondary" type="submit">
