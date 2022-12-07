@@ -71,7 +71,7 @@ export function NavigationBar() {
 
             {isAuthenticated && fullName.length > 0 && (
               <NavDropdown
-                title={firstName + lastName}
+                title={(firstName ?? '') + (lastName ?? '')}
                 id="collasible-nav-dropdown"
               >
                 <NavDropdown.Item onClick={() => navigate(PROFILE_PATH)}>

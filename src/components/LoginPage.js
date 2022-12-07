@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Button, Form, Card, Row, Col } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
 
 import { RESET_PASSWORD_PATH, HOME_PATH } from "../constants";
+import CommonService from "../services/CommonService";
 import LoginService from "../services/LoginService";
 
 export function LoginPage() {
@@ -22,6 +23,12 @@ export function LoginPage() {
     }
     navigate(HOME_PATH);
   };
+
+  useEffect(() => {
+    if (CommonService.get().isAuthenticated()) {
+      navigate(HOME_PATH);
+    }
+  }, []);
   return (
     <Card className="cardBody">
       <Card.Header>Login</Card.Header>
