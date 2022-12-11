@@ -7,3 +7,4 @@ export const RESET_PASSWORD_PATH = '/resetpassword';
 export const PROFILE_PATH = '/profile';
 export const MY_HEALTH_PATH = '/myhealth';
 export const CONTACT_PATH = '/contact';
+export const JOB_PATH = '/career/job';

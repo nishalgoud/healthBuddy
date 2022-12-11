@@ -15,6 +15,7 @@ import {
   PROFILE_PATH,
   MY_HEALTH_PATH,
   CONTACT_PATH,
+  JOB_PATH,
 } from "./constants";
 import { Careers } from "./components/Careers";
 import { UsersList } from "./components/UsersList";
@@ -25,6 +26,7 @@ import { Contact } from "./components/Contact";
 import { ProtectedRoute } from "./routes/ProtectedRoute";
 import AutoLogout from "./components/AutoLogout";
 import { ResetPasswordPage } from "./components/ResetPasswordPage";
+import { JobPage } from "./components/JobPage";
 
 function App() {
   const getComponentWithAutoLogout = (component) => {
@@ -53,6 +55,10 @@ function App() {
             <Route
               path={MY_HEALTH_PATH}
               element={getComponentWithAutoLogout(<MyHealth />)}
+            />
+            <Route
+              path={`${JOB_PATH}/:id`}
+              element={getComponentWithAutoLogout(<JobPage />)}
             />
           </Route>
 

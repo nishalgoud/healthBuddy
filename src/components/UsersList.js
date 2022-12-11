@@ -60,7 +60,7 @@ export function UsersList() {
               const fullName = firstName + (lastName ?? "");
               return (
                 <tr>
-                  <td>{userId}</td>
+                  <td>{index+1}</td>
                   <td>{email}</td>
                   <td>{fullName}</td>
                   <td>{mobileNumber}</td>

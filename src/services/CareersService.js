@@ -11,6 +11,18 @@ class CareersService {
     } catch (error) {
       console.log(error);
     }
+    
+  }
+
+  
+  async getJobById(id) {
+    try {
+      const res = await this.client.get(`/jobs/${id}`);
+      return res;
+    } catch (error) {
+      console.log(error);
+    }
+    
   }
 
 
