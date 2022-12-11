@@ -11,6 +11,7 @@ import {
   PROFILE_PATH,
   MY_HEALTH_PATH,
   CONTACT_PATH,
+  SUPPLEMENT_INFORMATION_PATH,
 } from "../constants";
 import CommonService from "../services/CommonService";
 import LoginService from "../services/LoginService";
@@ -56,6 +57,7 @@ export function NavigationBar() {
                   My Health
                 </Nav.Link>
                 <Nav.Link onClick={() => navigate(USERS_PATH)}>Users</Nav.Link>
+                <Nav.Link onClick={() => navigate(SUPPLEMENT_INFORMATION_PATH)}>SupplementInformation</Nav.Link>
               </>
             )}
 

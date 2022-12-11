@@ -8,3 +8,4 @@ export const PROFILE_PATH = '/profile';
 export const MY_HEALTH_PATH = '/myhealth';
 export const CONTACT_PATH = '/contact';
 export const JOB_PATH = '/career/job';
+export const SUPPLEMENT_INFORMATION_PATH = '/supplementInformation';
