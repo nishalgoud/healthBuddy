@@ -54,7 +54,7 @@ export function NavigationBar() {
                   Careers
                 </Nav.Link>
                 <Nav.Link onClick={() => navigate(MY_HEALTH_PATH)}>
-                  My Health
+                  MyHealthTool
                 </Nav.Link>
                 <Nav.Link onClick={() => navigate(USERS_PATH)}>Users</Nav.Link>
                 <Nav.Link onClick={() => navigate(SUPPLEMENT_INFORMATION_PATH)}>SupplementInformation</Nav.Link>

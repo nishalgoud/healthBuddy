@@ -13,13 +13,15 @@ import {
 import parse from "html-react-parser";
 
 import { HealthBuddyQuestions } from "./HealthBuddyQuestions";
+import { HealthBuddy } from "./HealthBuddy";
 
 export function MyHealth() {
   const [age, setAge] = useState(0);
   const [isPregnant, setIsPregnant] = useState(false);
   const [recommendations, setRecommendations] = useState([]);
   const [healthFinderList, setHealthFinderList] = useState([]);
-  const [healthFinderData, setHealthFinderData] = useState({});
+  const [healthFinder, setHealthFinder] = useState();
+  const [healthFinderResult, setHealthFinderResult] = useState({});
   const [isLoading, setIsLoading] = useState(false);
   const [sex, setSex] = useState("Male");
 
@@ -40,7 +42,7 @@ export function MyHealth() {
       const pregnantList = Resources["pregnant"]?.["Resource"] ?? [];
       const someList = Resources["some"]?.["Resource"] ?? [];
       setHealthFinderList([...allList, ...pregnantList, ...someList]);
-      setHealthFinderData(Result);
+      setHealthFinderResult(Result);
       const recommendations =
         Resources["You may also be interested in these health topics:"]
           ?.Resource;
@@ -63,7 +65,8 @@ export function MyHealth() {
     }
   }, [age]);
 
-  const { MyHFHeading } = healthFinderData;
+  const { MyHFHeading } = healthFinderResult;
+  console.log(healthFinder, 'healthFinder');
   return (
     <>
       <Card style={{ paddingTop: "2em", paddingBottom: "2em" }}>
@@ -140,48 +143,57 @@ export function MyHealth() {
           </Row>
         </Tab.Container>
       </Card>
-      {isLoading ? (
-        <Spinner animation="border" variant="secondary" size='xxl'/>
+
+      {healthFinder ? (
+        <HealthBuddy healthFinder={healthFinder} setHealthFinder={setHealthFinder} />
       ) : (
-        <Card>
-          <Card.Title
-            as="h1"
-            style={{ textAlign: "center", padding: "30px 0 " }}
-          >
-            {MyHFHeading}
-          </Card.Title>
+        <>
+          {" "}
+          {isLoading ? (
+            <Spinner animation="border" variant="secondary" size="xxl" />
+          ) : (
+            <Card>
+              <Card.Title
+                as="h1"
+                style={{ textAlign: "center", padding: "30px 0 " }}
+              >
+                {MyHFHeading}
+              </Card.Title>
 
-          <div
-            style={{
-              display: "flex",
-              flexWrap: "wrap",
-              justifyContent: "stretch",
-              gap: "35px",
-            }}
-          >
-            {healthFinderList.length > 0 &&
-              healthFinderList.map((item) => {
-                const { MyHFTitle, MyHFDescription, ImageUrl } = item;
-                return (
-                  // <Col>
-                  <Card style={{ width: "15%", boxSizing: "border-box" }}>
-                    <Card.Img
-                      variant="top"
-                      src={ImageUrl}
-                      width="200"
-                      height="300"
-                    />
-                    <Card.Body>
-                      <Card.Title>{MyHFTitle}</Card.Title>
-
-                      {parse(MyHFDescription)}
-                    </Card.Body>
-                  </Card>
-                  // </Col>
-                );
-              })}
-          </div>
-        </Card>
+              <div
+                style={{
+                  display: "flex",
+                  flexWrap: "wrap",
+                  justifyContent: "stretch",
+                  gap: "35px",
+                }}
+              >
+                {healthFinderList.length > 0 &&
+                  healthFinderList.map((item) => {
+                    const { MyHFTitle, MyHFDescription, ImageUrl } = item;
+                    return (
+                      <Card
+                        style={{ width: "15%", boxSizing: "border-box", cursor:'pointer' }}
+                        onClick={() => setHealthFinder(item)}
+                        title={MyHFTitle}
+                      >
+                        <Card.Img
+                          variant="top"
+                          src={ImageUrl}
+                          width="200"
+                          height="300"
+                        />
+                        <Card.Body>
+                          <Card.Title>{MyHFTitle}</Card.Title>
+                          {parse(MyHFDescription)}
+                        </Card.Body>
+                      </Card>
+                    );
+                  })}
+              </div>
+            </Card>
+          )}
+        </>
       )}
     </>
   );
