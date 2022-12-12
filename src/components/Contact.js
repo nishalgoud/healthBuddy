@@ -122,8 +122,9 @@ export function Contact() {
             </Form.Group>
             <Form.Group className="mb-3">
               <Form.Label>Specific details about your inquiry*</Form.Label>
+              
               <Form.Control
-                type="textarea"
+                as="textarea" rows={4}
                 placeholder="Enter your message"
                 required
                 value={contactDetails.specificDetails}

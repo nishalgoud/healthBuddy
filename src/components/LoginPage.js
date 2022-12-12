@@ -16,7 +16,7 @@ export function LoginPage() {
     e.preventDefault();
 
     const { code, message = "user logged in successfully" } =
-      await LoginService.get().login({ email, password });
+      await LoginService.get().login({ email, password }, isRemembermeChecked);
     alert(message);
     if (!code) {
       return;

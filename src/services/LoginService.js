@@ -13,13 +13,21 @@ class LoginService {
     }
   }
 
-  async login(userData) {
+  async login(userData, isRemembermeChecked=false) {
     try {
       let res = await this.client.post("/login", userData);
       if (res.code) {
-        sessionStorage.setItem("access_token", res.jwtToken);
-        sessionStorage.setItem("userDetails", JSON.stringify(res.user));
-        sessionStorage.setItem("userRoles", JSON.stringify(res.roles));
+        if(isRemembermeChecked){
+          localStorage.setItem("access_token", res.jwtToken);
+          localStorage.setItem("userDetails", JSON.stringify(res.user));
+          localStorage.setItem("userRoles", JSON.stringify(res.roles));
+        }
+        else{
+          sessionStorage.setItem("access_token", res.jwtToken);
+          sessionStorage.setItem("userDetails", JSON.stringify(res.user));
+          sessionStorage.setItem("userRoles", JSON.stringify(res.roles));
+        }
+
       }
       return res;
     } catch (error) {

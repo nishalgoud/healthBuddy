@@ -12,7 +12,7 @@ export function FrequentlyAskedQuestions() {
         <Card.Text>
           With supporting text below as a natural lead-in to additional content.
         </Card.Text>
-        <Accordion>
+        <Accordion defaultActiveKey="0">
           <Accordion.Item eventKey="0">
             <Accordion.Header>
               Where can I find out how much of each vitamin and mineral I need ?{" "}
