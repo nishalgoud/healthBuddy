@@ -38,8 +38,9 @@ function App() {
     <div>
       <Routes>
         <Route path={HOME_PATH} element={<NavigationBar />}>
+          
           <Route path="/" element={<ProtectedRoute />}>
-            <Route index element={getComponentWithAutoLogout(<Home />)} />
+        
 
             <Route
               path={CAREER_PATH}
@@ -62,13 +63,14 @@ function App() {
               path={`${JOB_PATH}/:id`}
               element={getComponentWithAutoLogout(<JobPage />)}
             />
-            <Route
-              path={SUPPLEMENT_INFORMATION_PATH}
-              element={getComponentWithAutoLogout(<SupplementInformation />)}
-            />
+           
           </Route>
-
+          <Route index element={<Home />} />
           <Route path={LOGIN_PATH} element={<LoginPage />} />
+          <Route
+              path={SUPPLEMENT_INFORMATION_PATH}
+              element={<SupplementInformation />}
+            />
           <Route path={SIGNUP_PATH} element={<SignUpPage />} />
           <Route path={RESET_PASSWORD_PATH} element={<ResetPasswordPage />} />
           <Route path={CONTACT_PATH} element={<Contact />} />

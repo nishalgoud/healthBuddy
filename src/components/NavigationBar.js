@@ -37,7 +37,7 @@ export function NavigationBar() {
         variant="light"
         className="navigationBar"
       >
-        <Navbar.Brand onClick={() => navigate(HOME_PATH)}>
+        <Navbar.Brand onClick={() => navigate(HOME_PATH)} style={{cursor:'pointer'}}>
           Health Buddy
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
@@ -47,9 +47,11 @@ export function NavigationBar() {
           <Nav.Link href="#pricing">Pricing</Nav.Link> */}
           </Nav>
           <Nav className="justify-content-end">
+
+          <Nav.Link onClick={() => navigate(HOME_PATH)}>Home</Nav.Link>
             {isAuthenticated && (
               <>
-                <Nav.Link onClick={() => navigate(HOME_PATH)}>Home</Nav.Link>
+                
                 <Nav.Link onClick={() => navigate(CAREER_PATH)}>
                   Careers
                 </Nav.Link>
@@ -57,10 +59,10 @@ export function NavigationBar() {
                   MyHealthTool
                 </Nav.Link>
                 <Nav.Link onClick={() => navigate(USERS_PATH)}>Users</Nav.Link>
-                <Nav.Link onClick={() => navigate(SUPPLEMENT_INFORMATION_PATH)}>SupplementInformation</Nav.Link>
+                
               </>
             )}
-
+<Nav.Link onClick={() => navigate(SUPPLEMENT_INFORMATION_PATH)}>SupplementInformation</Nav.Link>
             <Nav.Link onClick={() => navigate(CONTACT_PATH)}>Contact</Nav.Link>
             {!isAuthenticated && (
               <>

@@ -24,6 +24,14 @@ class CareersService {
     }
     
   }
+  async upload(fileData) {
+    try {
+      let res = await this.client.post("/upload", fileData);
+      return res;
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
 
 }
